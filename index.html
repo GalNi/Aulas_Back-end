@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bem vindo ao blog</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<header>
+    <div class="menu-superior">
+
+        <div class="topo-assuntos topo">
+            <div class="container alinhar">Assuntos</div>
+        </div>
+
+        <div class="topo-redes topo">
+            <div class="container alinhar">Redes</div>
+        </div>
+
+        <div class="topo-logo topo">
+            <div class="container alinhar">Logo + menu</div>
+        </div>
+
+        <div class="topo-menu">
+            <div class="">
+                <nav>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="materias.html">Destques</a></li>
+                        <li><a href="sobre.html">Sobre</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </div>
+
+</header>
+
+<body>
+    <div>
+        <div class="container">
+
+            <div class="slideshow-container">
+
+                <div class="mySlides fade">
+                    <div class="numbertext">1 / 3</div>
+                    <a href="materias.html"><img src="imagens/01.png" style="width:100%"></a>
+                    <div class="text">Caption Text</div>
+                </div>
+
+                <div class="mySlides fade">
+                    <div class="numbertext">2 / 3</div>
+                    <a href="materias.html"><img src="imagens/02.png" style="width:100%"></a>
+                    <div class="text">Caption Two</div>
+                </div>
+
+                <div class="mySlides fade">
+                    <div class="numbertext">3 / 3</div>
+                    <a href="materias.html"><img src="imagens/03.png" style="width:100%"></a>
+                    <div class="text">Caption Three</div>
+                </div>
+
+                <a class="prev" onclick="plusSlides(-1)">❮</a>
+                <a class="next" onclick="plusSlides(1)">❯</a>
+
+            </div>
+            <br>
+
+            <div style="text-align:center">
+                <span class="dot" onclick="currentSlide(1)"></span>
+                <span class="dot" onclick="currentSlide(2)"></span>
+                <span class="dot" onclick="currentSlide(3)"></span>
+            </div>
+            <div class="">
+                <div class="titulo"><u>Matérias</u></div>
+            </div>
+            <div class="caixas">
+                <div class="conteudo">
+                    <img src="imagens/01.png">
+                    <div class="colluns">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum dolore ratione ad nisi minima. Eveniet, eos. Quidem nisi nam minima sequi officia officiis consequatur similique dolores, et doloremque vitae dolorum!</div>
+                    <div class="btn"><a href="materias.html">Saiba mais</a></div>
+                </div>
+                <div class="conteudo">
+                    <img src="imagens/02.png">
+                    <div class="colluns">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum dolore ratione ad nisi minima. Eveniet, eos. Quidem nisi nam minima sequi officia officiis consequatur similique dolores, et doloremque vitae dolorum!</div>
+                    <div class="btn"><a href="materias.html">Saiba mais</a></div>
+                </div>
+                <div class="conteudo">
+                    <img src="imagens/03.png">
+                    <div class="colluns">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum dolore ratione ad nisi minima. Eveniet, eos. Quidem nisi nam minima sequi officia officiis consequatur similique dolores, et doloremque vitae dolorum!</div>
+                    <div class="btn"><a href="materias.html">Saiba mais</a></div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+<footer>
+    <div class="">
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="materias.html">Destques</a></li>
+                <li><a href="sobre.html">Sobre</a></li>
+            </ul>
+        </nav>
+    </div>
+</footer>
+    <script>
+        let slideIndex = 1;
+        showSlides(slideIndex);
+
+        function plusSlides(n) {
+            showSlides(slideIndex += n);
+        }
+
+        function currentSlide(n) {
+            showSlides(slideIndex = n);
+        }
+
+        function showSlides(n) {
+            let i;
+            let slides = document.getElementsByClassName("mySlides");
+            let dots = document.getElementsByClassName("dot");
+            if (n > slides.length) { slideIndex = 1 }
+            if (n < 1) { slideIndex = slides.length }
+            for (i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";
+            }
+            for (i = 0; i < dots.length; i++) {
+                dots[i].className = dots[i].className.replace(" active", "");
+            }
+            slides[slideIndex - 1].style.display = "block";
+            dots[slideIndex - 1].className += " active";
+        }
+    </script>
+</body>
+
+</html>
