@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ENQUANTO</title>
+    <link rel="stylesheet" href="Assets/CSS/enquanto.css">
+</head>
+<body>
+
+<h1>Folha de pagamento</h1>
+
+<form action="POST" id="formCadastro">
+<label>Nome do funcionário:</label>
+<input type="text" name="nomeFunc" placeholder="Ex: Gal Costa">
+<label>Salário bruto:</label>
+<input type="text" name="salario" placeholder="R$">
+<button>Cadastrar</button>
+</form>
+<table>
+    <thead>
+        <tr>
+            <th>Matrícula</th>
+            <th>Funcionário</th>
+            <th>Salário Bruto</th>
+            <th>Desconto de VA</th>
+            <th>Desconto de VR</th>
+            <th>Desconto de IR</th>
+            <th>Desconto de INSS</th>
+            <th>Salário Liquído </th>
+        </tr>
+    </thead>
+    <tbody id="relatorio"></tbody>
+</table>
+
+    <script src="assets/JS/enquanto.js"></script>
+</body>
+</html>

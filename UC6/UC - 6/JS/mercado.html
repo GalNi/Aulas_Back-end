@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mercado</title>
+    <link rel="stylesheet" href="Assets/CSS/mercado.css">
+</head>
+
+<body>
+    <h1>Carrinho de compras</h1>
+    <form action="#" method="POST" id="form-compras">
+        <label>Produto:</label>
+        <input type="text" name="produto" placeholder="">
+        <label for=""></label>
+        <label>Quantidade:</label>
+        <input type="number" name="qtd" placeholder="">
+        <label id="">Valor do produto:</label>
+        <input type="number" name="valor" placeholder="R$">
+        <!--<label>Valor total da compra:</label>
+        <input type="text" name="total" placeholder="">-->
+        <div class="lado">
+            <button>Cadastrar compra</button>
+        </div>
+    </form>
+    <table>
+        <thead>
+            <tr>
+                <th>Produto</th>
+                <th>Quantidade</th>
+                <th>Valor do produto</th>
+                <th>Valor da compra</th>
+            </tr>
+        </thead>
+        <tbody id="media_"></tbody>
+        <tr>
+            <td id="fTotal"></td>
+        </tr>
+    </table>
+    <div class="lado">
+        <button id="fCompra">Finalizar compra?</button>
+    </div>
+    <div class="lado" id="pag"></div>
+
+    <script src="assets/JS/mercado.js"></script>
+
+</body>
+
+</html>

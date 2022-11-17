@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercícios 8</title>
+    <style>
+        .container {
+            width: 80%;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Média Aluno</h1>
+        <hr>
+        <h1>Resposta</h1>
+        <form method="POST" id="form-bimestre">
+
+            <label for="nome">Nome do aluno:</label>
+            <input type="text" name="nome" placeholder="Escreva o nome do  aluno" id="nome">
+
+            <label for="disciplina">Disciplina:</label>
+            <input type="text" placeholder="" id="disciplina" name="disciplina">
+            <!--<select name="disciplina" id="disciplina">
+                <option value="">Português</option>
+                <option value="">Matemática</option>
+                <option value="">História</option>
+                <option value="">Geografia</option>
+            </select>-->
+
+            <label for="nota1">BIM1:</label>
+            <input type="text" placeholder="" id="bim1" name="nota1">
+
+            <label for="nota2">BIM2:</label>
+            <input type="text" placeholder="" id="bim2" name="nota2">
+
+            <label for="nota3">BIM3:</label>
+            <input type="text" placeholder="" id="bim3" name="nota3">
+
+            <label for="nota4">BIM4:</label>
+            <input type="text" placeholder="" id="bim4" name="nota4">
+
+            <button type="button" id="btn">Calcular</button>
+            <div id="resultado"></div>
+        </form>
+        <script src="js8.js"></script>
+    </div>
+</body>
+
+</html>
