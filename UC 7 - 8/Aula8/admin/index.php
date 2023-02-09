@@ -1,4 +1,4 @@
-<?php include_once("config/conexao.php"); ?>
+<?php include_once("../config/conexao.php"); ?>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -83,7 +83,7 @@
 
       <div id="categorias">
 <!--------------------------------Categorias--------------------------------->
-      <?php include_once("includes/vitrine-categorias.php"); ?>
+      <?php include_once("../includes/vitrine-categorias.php"); ?>
       </div >
       <div id="top-categorias">
 <!--------------------------------Top Categorias----------------------------->
