@@ -88,7 +88,7 @@
     </style>
 <body>
 <div class="container">
-<a href='index.php'><i class='fa-solid fa-arrow-left'></i></a>
+<a href='gestao-categoria.php'><i class='fa-solid fa-arrow-left'></i></a>
 <h4>Gestão de categorias</h4>
     <table>
         <thead>
@@ -146,8 +146,8 @@
             $resultado = mysqli_fetch_all($consultarCategoria, MYSQLI_ASSOC);
                 foreach($resultado as $categoria){
                     echo'<h4>Editar categoria</h4>
-                    <form actio"#" mathod="POST">
-                    <input type="hidden name="id" value="'.$categoria["id"].'">
+                    <form action="editar-categoria.php" method="POST">
+                    <input type="hidden" name="id" value="'.$categoria["id"].'">
                     <input type="text" name="nome-categoria" value="'.$categoria["nome"].'">
                     <input type="text" name="img-categoria"value="'.$categoria["img"].'">
                     <input type="text" name="slug-categoria" value="'.$categoria["slug"].'">

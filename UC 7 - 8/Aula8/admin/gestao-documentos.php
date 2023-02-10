@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tito's Market - Gestão de categorias</title>
+    <title>Tito's Market - Gestão gêneros</title>
 </head>
     <style>
       *{
@@ -89,30 +89,33 @@
 <body>
 <div class="container">
 <a href='index.php'><i class='fa-solid fa-arrow-left'></i></a>
-<h4>Gestão de categorias</h4>
+<h4>Gestão de documentos</h4>
     <table>
         <thead>
             <tr>
                 <th>Nome</th>
-                <th>Visibilidade</th>
-                <th>Situação</th>
-                <th>Ações</th>
+                <th>Sobrenome</th>
+                <th>Data Nascimento</th>
+                <th>Gênero</th>
+                <th>Newsletter</th>
             </tr>
         </thead>
         <tbody>
 
     <?php
-    $consulta = mysqli_query($conexao, "SELECT * FROM tbl_categorias");
-    $dados_categorias = mysqli_fetch_all($consulta, MYSQLI_ASSOC);
+    $consulta = mysqli_query($conexao, "SELECT * FROM tbl_clientes");
+    $dados_clientes = mysqli_fetch_all($consulta, MYSQLI_ASSOC);
 
-    foreach($dados_categorias as $categoria){
+    foreach($dados_clientes as $clientes){
         echo "<tr>";
-        echo "<td>".$categoria['nome']."</td>";
-        echo "<td>".$categoria['visibilidade']."</td>";
-        echo "<td>".$categoria['id_situacao']."</td>";
+        echo "<td>".$clientes['nome']."</td>";
+        echo "<td>".$clientes['sobrenome']."</td>";
+        echo "<td>".$clientes['data_nasc']."</td>";
+        echo "<td>".$clientes['id_genero']."</td>";
+        echo "<td>".$clientes['newsletter']."</td>";
         echo "<td>
-        <a href='?acao=editar&id=".$categoria['id']."'><i class='fa-solid fa-pen-to-square'></i></a>
-        <a href='deletar-categoria.php?id=".$categoria['id']."'><i class='fa-solid fa-trash'></td>";
+        <a href='?acao=editar&id=".$clientes['id']."'><i class='fa-solid fa-pen-to-square'></i></a>
+        <a href='deletar-genero.php?id=".$clientes['id']."'><i class='fa-solid fa-trash'></td>";
         echo "</tr>";
     }
     ?>
@@ -122,18 +125,18 @@
     <?php
     if(isset($_GET["msg"])){
         if($_GET["msg"] == "sucessocad"){
-            echo"Categoria cadastrada com sucesso";
+            echo"Dados cadastrados com sucesso";
         }
         if($_GET["msg"] == "errocad"){
-            echo"Erro ao cadastrar categoria";
+            echo"Erro ao cadastrar dados";
         }
     }
     if(isset($_GET["msg"])){
         if($_GET["msg"] == "sucessodel"){
-            echo"Categoria deletada com sucesso";
+            echo"Dados deletados com sucesso";
         }
         if($_GET["msg"] == "errodel"){
-            echo"Erro ao deletar categoria";
+            echo"Erro ao deletar dados";
         }
     }
     ?>
@@ -141,17 +144,20 @@
     <?php
     if(isset($_GET["acao"])){
         if($_GET["acao"] == "editar"){
-            $queryConsultarCategoria = "SELECT * FROM tbl_categorias WHERE id = ".$_GET["id"];
-            $consultarCategoria = mysqli_query($conexao, $queryConsultarCategoria);
-            $resultado = mysqli_fetch_all($consultarCategoria, MYSQLI_ASSOC);
-                foreach($resultado as $categoria){
-                    echo'<h4>Editar categoria</h4>
-                    <form actio"#" mathod="POST">
-                    <input type="hidden name="id" value="'.$categoria["id"].'">
-                    <input type="text" name="nome-categoria" value="'.$categoria["nome"].'">
-                    <input type="text" name="img-categoria"value="'.$categoria["img"].'">
-                    <input type="text" name="slug-categoria" value="'.$categoria["slug"].'">
+            $queryConsultarDados = "SELECT * FROM tbl_clientes WHERE id = ".$_GET["id"];
+            $consultarDados = mysqli_query($conexao, $queryConsultarDados);
+            $resultado = mysqli_fetch_all($consultarDados, MYSQLI_ASSOC);
+                foreach($resultado as $dados){
+                    echo'<h4>Editar Gênero</h4>
+                    <form action="editar-genero.php" method="POST">
+                    <input type="hidden" name="id" value="'.$dados["id"].'">
+                    <input type="text" name="nome-cliente" value="'.$dados["nome"].'">
+                    <input type="text" name="sobrenome-cliente" value="'.$dados["sobrenome"].'">
+                    <input type="text" name="tdataNasc_cliente" value="'.$dados["data_nasc"].'">
+                    <input type="text" name="genero-cliente" value="'.$dados["id_genero"].'">
+                    <input type="text" name="newsletter-cliente" value="'.$dados["newsletter"].'">
                     <button>Salvar</button>';
+
                 }
                     ?>
                     </form>
@@ -159,14 +165,10 @@
         }
         }else{
     ?>
-        <h4>cadastro de categoria</h4>
-          <form action="inserir-categoria.php" method="POST" enctype="multipart/form-data">
-                <label for="">Nome</label>
-                <input type="text" name="nome-categoria">
-                <label for="">Imagem</label>
-                <input type="text" name="img-categoria">
-                <label for="">Slug</label>
-                <input type="text" name="slug-categoria">
+        <h4>Cadastro de Gênero</h4>
+          <form action="inserir-genero.php" method="POST" enctype="multipart/form-data">
+                <label for="">Gênero</label>
+                <input type="text" name="tipo-genero">
                 <button>Gravar</button>
             </form>
         <?php

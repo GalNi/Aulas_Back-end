@@ -107,7 +107,7 @@
         echo "<td>".$generos['genero']."</td>";
         echo "<td>
         <a href='?acao=editar&id=".$generos['id']."'><i class='fa-solid fa-pen-to-square'></i></a>
-        <a href='deletar-categoria.php?id=".$generos['id']."'><i class='fa-solid fa-trash'></td>";
+        <a href='deletar-genero.php?id=".$generos['id']."'><i class='fa-solid fa-trash'></td>";
         echo "</tr>";
     }
     ?>
@@ -140,11 +140,12 @@
             $consultarGenero = mysqli_query($conexao, $queryConsultarGenero);
             $resultado = mysqli_fetch_all($consultarGenero, MYSQLI_ASSOC);
                 foreach($resultado as $genero){
-                    echo'<h4>Editar categoria</h4>
-                    <form actio"#" mathod="POST">
-                    <input type="hidden name="id" value="'.$genero["id"].'">
-                    <input type="text" name="slug-categoria" value="'.$genero["genero"].'">
+                    echo'<h4>Editar Gênero</h4>
+                    <form action="editar-genero.php" method="POST">
+                    <input type="hidden" name="id" value="'.$genero["id"].'">
+                    <input type="text" name="troca-genero" value="'.$genero["genero"].'">
                     <button>Salvar</button>';
+
                 }
                     ?>
                     </form>
@@ -152,14 +153,10 @@
         }
         }else{
     ?>
-        <!--<h4>cadastro de Gênero</h4>
-          <form action="inserir-categoria.php" method="POST" enctype="multipart/form-data">
-                <label for="">Nome</label>
-                <input type="text" name="nome-categoria">
-                <label for="">Imagem</label>
-                <input type="text" name="img-categoria">
-                <label for="">Slug</label>
-                <input type="text" name="slug-categoria">
+        <h4>Cadastro de Gênero</h4>
+          <form action="inserir-genero.php" method="POST" enctype="multipart/form-data">
+                <label for="">Gênero</label>
+                <input type="text" name="tipo-genero">
                 <button>Gravar</button>
             </form>
         <?php
@@ -169,4 +166,4 @@
 </div>
 <script src='https://kit.fontawesome.com/a342c01441.js' crossorigin='anonymous'></script>
 </body>
-</html>-->
+</html>
