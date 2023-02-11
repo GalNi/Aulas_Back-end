@@ -148,7 +148,7 @@
             $consultarDados = mysqli_query($conexao, $queryConsultarDados);
             $resultado = mysqli_fetch_all($consultarDados, MYSQLI_ASSOC);
                 foreach($resultado as $dados){
-                    echo'<h4>Editar Gênero</h4>
+                    echo'<h4>Editar Documentos</h4>
                     <form action="editar-genero.php" method="POST">
                     <input type="hidden" name="id" value="'.$dados["id"].'">
                     <input type="text" name="nome-cliente" value="'.$dados["nome"].'">
@@ -165,10 +165,30 @@
         }
         }else{
     ?>
-        <h4>Cadastro de Gênero</h4>
-          <form action="inserir-genero.php" method="POST" enctype="multipart/form-data">
+        <h4>Cadastro de documentos</h4>
+          <form action="inserir-cliente.php" method="POST" enctype="multipart/form-data">
+                <label for="">Nome</label>
+                <input type="text" name="doc-nome">
+                <label for="">Sobrenome</label>
+                <input type="text" name="doc-sobrenome">
+                <label for="">Data de nascimento</label>
+                <input type="date" name="doc-data">
                 <label for="">Gênero</label>
-                <input type="text" name="tipo-genero">
+                <select name="genero" id="">
+<?php
+    $query = "SELECT * FROM tbl_generos";
+    $consulta_genero = mysqli_query($conexao, $query);
+    $result = mysqli_fetch_all($consulta_genero, MYSQLI_ASSOC);
+
+    foreach($result as $genero){
+?>
+<option value='<?=$genero["id"]?>'><?=$genero["genero"]?>
+</option>
+<?php
+    }
+?>
+                <label for="">Newsletter</label>
+                <input type="text" name="doc-news">
                 <button>Gravar</button>
             </form>
         <?php
