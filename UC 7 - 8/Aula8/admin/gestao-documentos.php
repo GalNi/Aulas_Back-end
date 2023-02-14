@@ -98,6 +98,7 @@
                 <th>Data Nascimento</th>
                 <th>Gênero</th>
                 <th>Newsletter</th>
+                <th>Ações</th>
             </tr>
         </thead>
         <tbody>
@@ -166,7 +167,7 @@
         }else{
     ?>
         <h4>Cadastro de documentos</h4>
-          <form action="inserir-cliente.php" method="POST" enctype="multipart/form-data">
+            <form action="inserir-cliente.php" method="POST" enctype="multipart/form-data">
                 <label for="">Nome</label>
                 <input type="text" name="doc-nome">
                 <label for="">Sobrenome</label>
@@ -175,23 +176,29 @@
                 <input type="date" name="doc-data">
                 <label for="">Gênero</label>
                 <select name="genero" id="">
-<?php
-    $query = "SELECT * FROM tbl_generos";
-    $consulta_genero = mysqli_query($conexao, $query);
-    $result = mysqli_fetch_all($consulta_genero, MYSQLI_ASSOC);
+                <?php
+                    $query = "SELECT * FROM tbl_generos";
+                    $consulta_genero = mysqli_query($conexao, $query);
+                    $result = mysqli_fetch_all($consulta_genero, MYSQLI_ASSOC);
 
-    foreach($result as $genero){
-?>
-<option value='<?=$genero["id"]?>'><?=$genero["genero"]?>
-</option>
-<?php
-    }
-?>
-                <label for="">Newsletter</label>
-                <input type="text" name="doc-news">
-                <button>Gravar</button>
-            </form>
-        <?php
+                foreach($result as $genero){
+                ?>
+                <option value='<?=$genero["id"]?>'><?=$genero["genero"]?>
+                </option>
+                <?php
+                    }
+                ?>
+                
+                
+                <?php
+                echo"
+                <div>
+                <label for=''>Newsletter</label>
+                <input type='checkbox' name='doc-news'>
+            </div>
+            <button>Gravar</button>
+
+        </form>";
     }
     ?>
 
