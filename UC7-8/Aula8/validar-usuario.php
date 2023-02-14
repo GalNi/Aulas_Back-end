@@ -8,7 +8,7 @@ if($_POST){
     $admin = $_POST['id_acesso'];
 
     $query = "SELECT * FROM tbl_acessos WHERE usuario = '$usuario' AND senha = '$senha'";
-    if($admin == 1){
+    if($query){
         $consultarDados = mysqli_query($conexao, $query);
         $resultado = mysqli_fetch_all($consultarDados, MYSQLI_ASSOC);
 
@@ -23,7 +23,7 @@ if($_POST){
         $consultarUsuario = mysqli_query($conexao, $queryUsuario);
         $resultadoUsuario = mysqli_fetch_all($consultarUsuario, MYSQLI_ASSOC);
         $_SESSION["NOME_USUARIO"] = $resultadoUsuario[0]["nome"];
-        $_SESSION["SOBRENOME_USUARIO"] = $resultadoUsuario[0]["sobrenome"];
+        $_SESSION["SOBRENOME_USUARIO"] = $resultadoUsuario[0]["Sobrenome"];
 
 
 
@@ -46,7 +46,7 @@ if($_POST){
         $consultarUsuario = mysqli_query($conexao, $queryUsuario);
         $resultadoUsuario = mysqli_fetch_all($consultarUsuario, MYSQLI_ASSOC);
         $_SESSION["NOME_USUARIO"] = $resultadoUsuario[0]["nome"];
-        $_SESSION["SOBRENOME_USUARIO"] = $resultadoUsuario[0]["sobrenome"];
+        $_SESSION["SOBRENOME_USUARIO"] = $resultadoUsuario[0]["Sobrenome"];
 
         header("Location: minha-conta.php");
         }else{

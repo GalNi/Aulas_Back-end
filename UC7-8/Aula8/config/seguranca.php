@@ -2,8 +2,8 @@
 
 session_start();
 
-if($_SESSION["ID_USUARIO"]){
+if($_SESSION["ID_ACESSO"] = 1){
 
 }else{
-   header("Location: login.php");
+   header("Location: ../login.php");
 };

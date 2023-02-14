@@ -24,7 +24,7 @@ if($_POST){
             $queryTelefone = "INSERT INTO tbl_contatos(id_usuario, numero) VALUES('$id', '$celular')";
             $inserirTelefone = mysqli_query($conexao, $queryTelefone);
             if($inserirTelefone){
-                header("Location: ../admin/index.php");
+                header("Location: admin/index.php");
             }else{
                 header("location: completar-cadastro.php?client=".$id);
             }
