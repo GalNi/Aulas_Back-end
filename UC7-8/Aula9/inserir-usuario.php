@@ -10,6 +10,15 @@ if($_POST){
     $salt = md5($usuario.$senha);
     $custo = "06";
     $senhaHash = crypt($senha, '$2b$' . $custo . '$'. $salt . '$');
-    //password_hash()
-    //$query = "SELECT * FROM tbl_acessos WHERE ";
+    //Inserir dados no banco de dados
+    $query = "INSERT INTO tbl_acessos(`usuario`, `senha`, `id_situacao`) VALUES ('$usuario', '$senhaHash', 1)";
+    $inserir = mysqli_query($conexao, $query);
+    //Verificar se os dados foram para o banco corretamente
+    if($inserir){
+        echo"Usuário cadastrado com sucesso!";
+    }else{
+        echo"Cadastrar usuário!";
+    }
+}else{
+
 }

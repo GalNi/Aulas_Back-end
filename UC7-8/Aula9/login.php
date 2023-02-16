@@ -11,10 +11,10 @@
 
 <body>
     <div class="container">
-        <form action="inserir-usuario.php" method="post">
+        <form action="validar-usuario.php" method="post">
             <input type="text" name="usuario" id="" placeholder="Usuário">
             <input type="password" name="senha" id="" placeholder="Senha">
-            <button>Cadastrar</button>
+            <button>Acessar</button>
         </form>
     </div>
 </body>
