@@ -9,14 +9,21 @@ if($_POST){
     $dataNasc = $_POST["data-nasc"];
     $genero = $_POST["genero"];
     $newsletter = $_POST["newsletter"];
+    $assina_boletim = 0;
+    
+    if($newsletter){
+        $assina_boletim = 1;
+    }
+    //CRIAÇÃO DA RASH - data + nome + sobrenome
+    $token_cliente = sha1(md5(date('d/m/y').$nome.$sobrenome));
 
-    $query = "INSERT INTO tbl_clientes(nome, sobrenome, data_nasc, id_genero, newsletter, id_situacao) VALUES('$nome', '$sobrenome', '$dataNasc', '$genero', '$newsletter', 1)";
+    $query = "INSERT INTO tbl_clientes(nome, sobrenome, data_nasc, id_genero, newsletter, id_situacao, `hash`) VALUES('$nome', '$sobrenome', '$dataNasc', '$genero', '$newsletter', 1, '$token_cliente')";
 
     $inserir = mysqli_query($conexao, $query);
 
     if($inserir){
-        $id_client = mysqli_insert_id($conexao);
-        header('Location: completar-cadastro.php?client='.$id_client);
+
+        header('Location: completar-cadastro.php?client='.$token_cliente);
     }else{
         header("Location: cadastro.php");
     }

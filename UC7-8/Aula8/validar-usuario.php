@@ -8,7 +8,6 @@ if($_POST){
 
     $query = "SELECT * FROM tbl_acessos WHERE usuario = '$usuario' AND senha = '$senha'";
     
-    echo $admin;
     //$admin = "SELECT * FROM tbl_acessos WHERE ";
     if($query){
         $consultarDados = mysqli_query($conexao, $query);
