@@ -13,7 +13,7 @@
 <body>
     <div class="container">
 <form action="inserir-cliente-dados.php" method="POST">
-<input type="text" name="id_client" value="<?php $_GET['hash_']?>">
+<input type="text" name="id_client" value="<?php echo $_GET['client']?>">
 <input type="text" name="cpf" placeholder="CPF">
 <input type="text" name="rg" placeholder="RG">
 <input type="text" name="email" placeholder="E-mail">
