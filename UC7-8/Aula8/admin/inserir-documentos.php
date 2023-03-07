@@ -2,16 +2,16 @@
 
 include_once("../config/conexao.php");
 
-$genero = $_POST["tipo-genero"];
+$docs = $_POST["tipo-docs"];
 
-$query = "INSERT INTO tbl_generos(`genero`) VALUES('$genero')";
-$inserir_genero = mysqli_query($conexao, $query);
+$query = "INSERT INTO tbl_tipo_docs(`id_tipo_docs`) VALUES('$docs')";
+$inserir_docs = mysqli_query($conexao, $query);
 
-if($inserir_genero){
-    header("Location: gestao-genero.php?msg=sucessocad");
+if($inserir_docs){
+    header("Location: gestao-documentos.php?msg=sucessocad");
 
 }else{
-    header("Location: gestao-genero.php?msg=errocad");
+    header("Location: gestao-documentos.php?msg=errocad");
 
 }
 ?>

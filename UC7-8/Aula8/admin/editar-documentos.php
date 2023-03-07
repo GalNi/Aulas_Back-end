@@ -3,16 +3,15 @@ include_once("../config/conexao.php");
 
 if($_POST){
     $id = $_POST["id"];
-    $nome = $_POST["nome-categoria"];
-    $img = $_POST["img"];
-    $slug = $_POST["slug"];
-    $query = "UPDATE tbl_categorias SET nome = '$nome', img = '$img', slug = '$slug' WHERE id = '$id'";
+    $docs = $_POST["id_tipo_docs"];
+
+    $query = "UPDATE tbl_tipo_docs SET id_tipo_docs = '$docs' WHERE id = '$id'";
     $gravar = mysqli_query($conexao, $query);
     if($gravar){
-        header("Location: gestao-categoria.php");
+        header("Location: gestao-documentos.php");
     }else{
 
     }
 }else{
-    header("Location: gestao-categoria.php");
+    header("Location: gestao-documentos.php");
 }
